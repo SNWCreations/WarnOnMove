@@ -5,9 +5,11 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
+import org.bukkit.World;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -28,6 +30,10 @@ public class EventListener implements Listener {
         if (s != null) {
             //System.out.println("Detected helmet");
             if (s.getType() == Material.STONE_BUTTON) {
+
+                if (locEqualsXYZ(event.getFrom(), event.getTo())) {
+                    return;
+                }
                 final UUID id = event.getPlayer().getUniqueId();
                 if (inactive.contains(id)) {
                     return; // should NOT play at this time
@@ -42,5 +48,21 @@ public class EventListener implements Listener {
                 //System.out.println("NOT stone button, detected " + s);
             }
         }
+    }
+
+    private boolean locEqualsXYZ(Location o, final Location other) {
+        if (o == null || other == null) {
+            return false;
+        }
+        if (Double.doubleToLongBits(o.getX()) != Double.doubleToLongBits(other.getX())) {
+            return false;
+        }
+        if (Double.doubleToLongBits(o.getY()) != Double.doubleToLongBits(other.getY())) {
+            return false;
+        }
+        if (Double.doubleToLongBits(o.getZ()) != Double.doubleToLongBits(other.getZ())) {
+            return false;
+        }
+        return true;
     }
 }
