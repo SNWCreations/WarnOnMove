@@ -33,7 +33,7 @@ public class EventListener implements Listener {
                     return; // should NOT play at this time
                 }
                 //System.out.println("Playing sound!");
-                event.getPlayer().getLocation().getWorld().playSound(event.getPlayer().getLocation(), Sound.ENTITY_VILLAGER_AMBIENT, SoundCategory.AMBIENT, 1, 1);
+                event.getPlayer().getLocation().getWorld().playSound(event.getPlayer().getLocation(), "entity.whale.ambient", SoundCategory.AMBIENT, 1, 1);
                 inactive.add(id);
                 Bukkit.getScheduler().runTaskLater(p, () -> inactive.remove(id), 20L); // sound length: 20 tick
                 //event.getPlayer().getServer().dispatchCommand(event.getPlayer(), "playsound minecraft:entity.villager.ambient ambient @a ~ ~ ~");
