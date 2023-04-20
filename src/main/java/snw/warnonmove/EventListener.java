@@ -1,7 +1,6 @@
 package snw.warnonmove;
 
 import org.bukkit.Material;
-import org.bukkit.SoundCategory;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -13,9 +12,13 @@ public class EventListener implements Listener {
     public void onMove(PlayerMoveEvent event) {
         ItemStack s = event.getPlayer().getInventory().getHelmet();
         if (s != null) {
+            //System.out.println("Detected helmet");
             if (s.getType() == Material.STONE_BUTTON) {
-                event.getPlayer().getServer().dispatchCommand(event.getPlayer(), "playsound minecraft:entity.whale.ambient master @a ~ ~ ~");
+                //System.out.println("Playing sound!");
+                event.getPlayer().getServer().dispatchCommand(event.getPlayer(), "playsound minecraft:entity.villager.ambient ambient @a ~ ~ ~");
                 //event.getPlayer().getLocation().getWorld().playSound(event.getPlayer().getLocation(), "minecraft:entity.whale.ambient", SoundCategory.MASTER, 1, 0);
+            } else {
+                //System.out.println("NOT stone button, detected " + s);
             }
         }
     }
