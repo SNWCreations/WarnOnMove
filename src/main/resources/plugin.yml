@@ -1,0 +1,4 @@
+name: Example # Change this!
+version: '${project.version}'
+main: snw.example.Main # Change this!
+api-version: 1.16
