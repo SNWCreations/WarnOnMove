@@ -14,7 +14,8 @@ public class EventListener implements Listener {
         ItemStack s = event.getPlayer().getInventory().getHelmet();
         if (s != null) {
             if (s.getType() == Material.STONE_BUTTON) {
-                event.getPlayer().getLocation().getWorld().playSound(event.getPlayer().getLocation(), "minecraft:entity.whale.ambient", SoundCategory.MASTER, 1, 0);
+                event.getPlayer().getServer().dispatchCommand(event.getPlayer(), "playsound minecraft;entity.whale.ambient master @a ~ ~ ~");
+                //event.getPlayer().getLocation().getWorld().playSound(event.getPlayer().getLocation(), "minecraft:entity.whale.ambient", SoundCategory.MASTER, 1, 0);
             }
         }
     }
