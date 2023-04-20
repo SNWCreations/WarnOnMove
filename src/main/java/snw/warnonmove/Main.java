@@ -1,4 +1,4 @@
-package snw.example;
+package snw.warnonmove;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

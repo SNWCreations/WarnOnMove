@@ -1,4 +1,4 @@
-name: Example # Change this!
+name: WarnOnMove # Change this!
 version: '${project.version}'
-main: snw.example.Main # Change this!
+main: snw.warnonmove.Main # Change this!
 api-version: 1.16
