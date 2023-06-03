@@ -1,4 +1,4 @@
 name: WarnOnMove # Change this!
 version: '${project.version}'
 main: snw.warnonmove.Main # Change this!
-api-version: 1.16
+api-version: 1.19
